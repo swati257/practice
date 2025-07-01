@@ -1,0 +1,30 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Fetch weather details </title>
+    </head>
+    <body>
+        <div id="weather-container">
+            <h1>Weather Details</h1>
+            <p id="Weathert-data"></p
+            </div>
+            <script>
+                const fetchweatherdata = () =>{
+                    const apikey = 'Your API Key';
+                    const city = 'India';
+                    const apiurl  = 'https://api.openweathermsap.org/data/2.5/weather ?q=${city}&appid=${apikey};
+                    fetch(apiUrl).then((response) => response.json()).then((data)=>{
+                        console.log(data);
+                        const {
+                            main,
+                            name
+                        } = data;
+                        const weather Data = 'It is currently ${main. temp} degrees in ${name}';
+                        document.getElement By Id('weather-data').textcontent = weatherdata;')
+                    });
+                };
+                fetchweatherdata();
+            </script>
+            </body>
+            </html>
