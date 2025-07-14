@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz</h1>
+    <form id="quizForm">
+        <!-- Question 1 -->
+        <div class="question">
+            <p>1. What is the capital of France?</p>
+            <label><input type="radio" name="q1" value="Paris"> Paris</label><br>
+            <label><input type="radio" name="q1" value="London"> London</label><br>
+            <label><input type="radio" name="q1" value="Berlin"> Berlin</label>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question">
+            <p>2. What is 5 + 3?</p>
+            <label><input type="radio" name="q2" value="7"> 7</label><br>
+            <label><input type="radio" name="q2" value="8"> 8</label><br>
+            <label><input type="radio" name="q2" value="9"> 9</label>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question">
+            <p>3. Which planet is known as the Red Planet?</p>
+            <label><input type="radio" name="q3" value="Mars"> Mars</label><br>
+            <label><input type="radio" name="q3" value="Venus"> Venus</label><br>
+            <label><input type="radio" name="q3" value="Jupiter"> Jupiter</label>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question">
+            <p>4. What is the boiling point of water?</p>
+            <label><input type="radio" name="q4" value="90°C"> 90°C</label><br>
+            <label><input type="radio" name="q4" value="100°C"> 100°C</label><br>
+            <label><input type="radio" name="q4" value="110°C"> 110°C</label>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="question">
+            <p>5. Who wrote 'Romeo and Juliet'?</p>
+            <label><input type="radio" name="q5" value="Shakespeare"> William Shakespeare</label><br>
+            <label><input type="radio" name="q5" value="Hemingway"> Ernest Hemingway</label><br>
+            <label><input type="radio" name="q5" value="Dickens"> Charles Dickens</label>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+</body>
+</html>
