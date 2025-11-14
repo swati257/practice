@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Rock–Paper–Scissors (5 Rounds)</h2>
+
+<button onclick="play('rock')">Rock</button>
+<button onclick="play('paper')">Paper</button>
+<button onclick="play('scissors')">Scissors</button>
+
+<p id="round">Round: 0/5</p>
+<p id="result"></p>
+<p id="score">You: 0 — AI: 0</p>
+<h3 id="final"></h3>
+
+<script>
+let round = 0, userScore = 0, aiScore = 0;
+const options = ["rock","paper","scissors"];
+
+function play(user){
+  if (round >= 5) return;
+  round++;
+  const ai = options[Math.floor(Math.random()*3)];
+
+  let res = "";
+  if (user === ai) res = "It's a tie!";
+  else if ((user=="rock"&&ai=="scissors")||(user=="paper"&&ai=="rock")||(user=="scissors"&&ai=="paper")){
+    res = "You win this round!"; userScore++;
+  } else { res = "AI wins this round!"; aiScore++; }
+
+  document.getElementById("round").textContent = "Round: "+round+"/5";
+  document.getElementById("result").textContent = "You: "+user+" | AI: "+ai+" → "+res;
+  document.getElementById("score").textContent = "You: "+userScore+" — AI: "+aiScore;
+
+  if (round === 5){
+    document.getElementById("final").textContent =
+      userScore>aiScore ? "You win the game!" :
+      aiScore>userScore ? "AI wins the game!" : "It's a tie!";
+  }
+}
+</script>
+</body>
+</html>
