@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body { margin: 0; font-family: 'Arial', sans-serif; background: #eceff1; text-align: center; }
+        header { background: #0277bd; color: white; padding: 20px; }
+        
+        .ocean-container {
+            position: relative;
+            height: 350px;
+            background: #4fc3f7;
+            overflow: hidden;
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 700px;
+            transition: background 1s;
+        }
+
+        /* Animated Waste */
+        .plastic-waste {
+            position: absolute;
+            font-size: 2.5rem;
+            animation: float 4s infinite ease-in-out;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(15deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        /* Clean vs Dirty State */
+        .polluted .ocean-container { background: #546e7a; }
+        .polluted .plastic-waste { opacity: 1; }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            background: #d32f2f;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .message { margin-top: 15px; font-weight: bold; font-size: 1.2rem; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Project: Marine Life vs. Plastic</h1>
+    <p>समुद्राला प्लॅस्टिकपासून वाचवा!</p>
+</header>
+
+<div id="projectWrapper">
+    <div class="ocean-container">
+        <!-- Marine Life -->
+        <div style="position:absolute; bottom:20px; left:20%; font-size:3rem;">🐢</div>
+        <div style="position:absolute; bottom:50px; right:30%; font-size:3rem;">🐠</div>
+        
+        <!-- Plastic Waste (Initially Hidden) -->
+        <div class="plastic-waste" style="top:10%; left:15%;">🧴</div>
+        <div class="plastic-waste" style="top:25%; right:20%;">🛍️</div>
+        <div class="plastic-waste" style="top:40%; left:40%;">🥤</div>
+    </div>
+</div>
+
+<button onclick="togglePollution()">Add/Remove Plastic Pollution</button>
+<div id="status" class="message">Safe Ocean: Happy Animals! 🌊</div>
+
+<script>
+    function togglePollution() {
+        const wrapper = document.getElementById('projectWrapper');
+        const status = document.getElementById('status');
+        wrapper.classList.toggle('polluted');
+        
+        if(wrapper.classList.contains('polluted')) {
+            status.innerHTML = "Polluted Ocean: Marine Life in Danger! ⚠️";
+            status.style.color = "#d32f2f";
+        } else {
+            status.innerHTML = "Safe Ocean: Happy Animals! 🎉";
+            status.style.color = "#2e7d32";
+        }
+    }
+</script>
+
+</body>
+</html>
