@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { margin: 0; font-family: 'Arial', sans-serif; background: #e0f2f1; text-align: center; }
+        header { background: #2e7d32; color: white; padding: 20px; }
+
+        /* Scene Container */
+        .forest-scene {
+            position: relative;
+            height: 300px;
+            background: linear-gradient(#81d4fa, #fff);
+            overflow: hidden;
+            border-bottom: 10px solid #5d4037;
+            margin: 20px auto;
+            max-width: 600px;
+            transition: background 1s;
+        }
+
+        /* Tree Animation */
+        .tree {
+            position: absolute;
+            bottom: 0;
+            width: 60px;
+            height: 100px;
+            background: #388e3c;
+            border-radius: 50% 50% 0 0;
+            transition: all 0.8s ease-in-out;
+        }
+        .tree::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 25px;
+            width: 10px;
+            height: 25px;
+            background: #5d4037;
+        }
+
+        /* Deforestation State */
+        .cut-trees .tree {
+            transform: rotate(90deg) translateY(40px);
+            opacity: 0.3;
+            background: #8d6e63;
+        }
+        .cut-trees .forest-scene { background: #cfd8dc; }
+
+        .btn-container { margin: 20px; }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background: #d32f2f;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Stop Deforestation</h1>
+    <p>Zade Lawa, Zade Jagwa (Plant Trees, Save Trees)</p>
+</header>
+
+<div id="mainContainer">
+    <div class="forest-scene">
+        <div class="tree" style="left: 10%;"></div>
+        <div class="tree" style="left: 30%; height: 120px;"></div>
+        <div class="tree" style="left: 55%;"></div>
+        <div class="tree" style="left: 80%; height: 90px;"></div>
+    </div>
+</div>
+
+<div class="btn-container">
+    <button onclick="toggleDeforestation()">Action: Cut Down vs. Regrow</button>
+</div>
+
+<div style="padding: 20px; max-width: 600px; margin: auto;">
+    <h3>Why stop cutting trees?</h3>
+    <p>Trees provide us with **Oxygen**, regulate the **Climate**, and prevent **Soil Erosion**. Excessive cutting of trees is causing global warming.</p>
+</div>
+
+<script>
+    function toggleDeforestation() {
+        document.getElementById('mainContainer').classList.toggle('cut-trees');
+    }
+</script>
+
+</body>
+</html>
