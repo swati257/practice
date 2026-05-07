@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Quiz App</title>
+
+<style>
+
+body{
+    font-family:Arial;
+    background:#f0f8ff;
+    text-align:center;
+}
+
+.quiz-box{
+    width:400px;
+    margin:auto;
+    margin-top:100px;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 0 10px gray;
+}
+
+button{
+    padding:10px 20px;
+    margin:10px;
+    border:none;
+    border-radius:10px;
+    background:purple;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:darkviolet;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="quiz-box">
+
+<h2 id="question">Question</h2>
+
+<div id="answers"></div>
+
+<h3 id="result"></h3>
+
+<button onclick="nextQuestion()">Next</button>
+
+</div>
+
+<script>
+
+const quiz = [
+
+{
+question:"What is the capital of India?",
+answers:["Delhi","Mumbai","Pune","Nashik"],
+correct:"Delhi"
+},
+
+{
+question:"Which language is used for web pages?",
+answers:["HTML","Python","C","Java"],
+correct:"HTML"
+},
+
+{
+question:"2 + 2 = ?",
+answers:["3","4","5","6"],
+correct:"4"
+}
+
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+function loadQuestion(){
+
+let q = quiz[currentQuestion];
+
+document.getElementById("question").innerText = q.question;
+
+let answersDiv = document.getElementById("answers");
+
+answersDiv.innerHTML = "";
+
+q.answers.forEach(answer => {
+
+let btn = document.createElement("button");
+
+btn.innerText = answer;
+
+btn.onclick = () => checkAnswer(answer);
+
+answersDiv.appendChild(btn);
+
+});
+
+}
+
+function checkAnswer(answer){
+
+if(answer === quiz[currentQuestion].correct){
+
+score++;
+
+document.getElementById("result").innerText = "Correct 🎉";
+
+}
+else{
+
+document.getElementById("result").innerText = "Wrong ❌";
+
+}
+
+}
+
+function nextQuestion(){
+
+currentQuestion++;
+
+document.getElementById("result").innerText = "";
+
+if(currentQuestion < quiz.length){
+
+loadQuestion();
+
+}
+else{
+
+document.querySelector(".quiz-box").innerHTML =
+"<h2>Your Score: " + score + "/" + quiz.length + "</h2>";
+
+}
+
+}
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
